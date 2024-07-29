@@ -62,8 +62,8 @@
                 return;
             }
 
-            const combinedLevel = ((mainPetLevel + subPetLevel) / 2) + 8;
-            document.getElementById('result').textContent = `合成等級: ${combinedLevel.toFixed(2)}`;
+            const combinedLevel = Math.floor(((mainPetLevel + subPetLevel) / 2) + 8);
+            document.getElementById('result').textContent = `合成等級: ${combinedLevel}`;
         }
     </script>
 </body>
