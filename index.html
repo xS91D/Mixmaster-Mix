@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>獵人MM 合成等級計算器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 10px;
+        }
+        .input-group label {
+            margin-right: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>獵人MM 合成等級計算器</h1>
+    <div class="input-group">
+        <label for="mainPetLevel">主寵等級:</label>
+        <input type="number" id="mainPetLevel" placeholder="輸入主寵等級">
+    </div>
+    <div class="input-group">
+        <label for="mainPetMaxLevel">主寵等級上限:</label>
+        <input type="number" id="mainPetMaxLevel" placeholder="輸入主寵等級上限">
+    </div>
+    <div class="input-group">
+        <label for="subPetLevel">副寵等級:</label>
+        <input type="number" id="subPetLevel" placeholder="輸入副寵等級">
+    </div>
+    <div class="input-group">
+        <label for="subPetMaxLevel">副寵等級上限:</label>
+        <input type="number" id="subPetMaxLevel" placeholder="輸入副寵等級上限">
+    </div>
+    <button onclick="calculateLevel()">計算合成等級</button>
+    <div class="result" id="result"></div>
+
+    <script>
+        function calculateLevel() {
+            const mainPetLevel = parseFloat(document.getElementById('mainPetLevel').value);
+            const subPetLevel = parseFloat(document.getElementById('subPetLevel').value);
+
+            if (isNaN(mainPetLevel) || isNaN(subPetLevel)) {
+                alert("請輸入有效的等級數值");
+                return;
+            }
+
+            const combinedLevel = ((mainPetLevel + subPetLevel) / 2) + 8;
+            document.getElementById('result').textContent = `合成等級: ${combinedLevel.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
